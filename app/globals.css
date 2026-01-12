@@ -42,6 +42,7 @@ p {
   color: var(--edu-muted);
 }
 
+
 /* =========================
    BUTTON SYSTEM
 ========================= */
@@ -109,3 +110,18 @@ p {
 .bg-primary { background: var(--edu-primary); }
 .bg-primary-soft { background: var(--edu-primary-soft); }
 .bg-section { background: var(--edu-section); }
+
+/* FORCE CARD TEXT COLOR */
+.goal-card h3,
+.goal-card p {
+  color: #ffffff !important;
+}
+
+/* Font smoothing biar lembut */
+.goal-card h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.goal-card p {
+  line-height: 1.7;
+}
