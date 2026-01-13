@@ -1,29 +1,45 @@
 "use client"
+
+import { useState } from "react"
 import { useRouter } from "next/navigation"
-import Navbar from "@/components/Navbar"
+import { registerVolunteer } from "@/lib/volunteerDB"
 
-export default function DaftarVolunteer() {
+export default function RegisterVolunteer() {
   const router = useRouter()
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    skill: ""
+  })
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    router.push("/dashboard")
+  const submit = () => {
+    const res = registerVolunteer(form)
+    if (res.error) return alert(res.error)
+    alert("Pendaftaran berhasil!")
+    router.push("/volunteer/login")
   }
 
   return (
-    <>
-      <Navbar />
-      <form onSubmit={handleSubmit} className="max-w-xl mx-auto py-20 px-4">
-        <h1 className="text-2xl font-bold mb-6">Form Pendaftaran Volunteer</h1>
+    <section className="min-h-screen flex items-center justify-center bg-slate-100 px-4">
+      <div className="bg-white p-10 rounded-2xl w-full max-w-md space-y-4">
+        <h1 className="text-2xl font-bold text-center">Daftar Volunteer</h1>
 
-        <input required className="border border-slate-300 p-3 w-full mb-4 rounded-lg" placeholder="Nama Lengkap" />
-        <input required className="border border-slate-300 p-3 w-full mb-4 rounded-lg" placeholder="Email" />
-        <input required className="border border-slate-300 p-3 w-full mb-4 rounded-lg" placeholder="Bidang Keahlian" />
+        {["name","email","password","skill"].map(key => (
+          <input
+            key={key}
+            type={key==="password"?"password":"text"}
+            placeholder={key}
+            value={form[key]}
+            onChange={e => setForm({ ...form, [key]: e.target.value })}
+            className="w-full border px-4 py-3 rounded-xl"
+          />
+        ))}
 
-        <button className="bg-emerald-600 hover:bg-emerald-700 text-white w-full py-3 rounded-xl">
-          Daftar & Masuk Dashboard
+        <button onClick={submit} className="bg-indigo-600 text-white py-3 rounded-xl w-full font-semibold">
+          Daftar Sekarang
         </button>
-      </form>
-    </>
+      </div>
+    </section>
   )
 }

@@ -10,7 +10,7 @@ export default function VolunteerDashboard() {
 
   useEffect(() => {
     const role = localStorage.getItem("EDUCARE_ROLE")
-    if (role !== "volunteer") router.push("/volunteer/login")
+    if (role !== "volunteer") router.push("/dashboard/volunteer/login")
   }, [])
 
   return (
@@ -73,7 +73,7 @@ export default function VolunteerDashboard() {
         <button
           onClick={() => {
             localStorage.removeItem("EDUCARE_ROLE")
-            router.push("/")
+            router.push("/dashboard/volunteer/login")
           }}
           className="inline-flex items-center gap-2 border px-6 py-3 rounded-xl text-red-600 hover:bg-red-50"
         >

@@ -38,9 +38,9 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-t border-slate-200 px-4 pb-4 flex flex-col gap-4">
           <Link href="/" onClick={() => setOpen(false)}>Beranda</Link>
           <Link href="/kelas" onClick={() => setOpen(false)}>Kelas</Link>
-          <Link href="/request" onClick={() => setOpen(false)}>Request Kelas</Link>
+          <Link href="/kelas_terdaftar" onClick={() => setOpen(false)}>My Class</Link>
           <Link href="/volunteer" onClick={() => setOpen(false)}>Volunteer</Link>
-          <Link href="/tentang" onClick={() => setOpen(false)}>Tentang Kami</Link>
+          <Link href="/tentang_kami" onClick={() => setOpen(false)}>Tentang Kami</Link>
           <Link href="/volunteer/daftar"
             className="bg-indigo-600 text-white py-2 rounded-lg text-center">
             Gabung Volunteer
