@@ -1,10 +1,10 @@
-import Navbar from "@/components/Navbar"
+import Navbar1 from "@/components/Navbar1"
 import Footer from "@/components/Footer"
 
 export default function Tentang() {
   return (
     <>
-      <Navbar />
+      <Navbar1 />
 
       {/* HERO */}
       <section className="bg-indigo-50 py-28 px-4 text-center">

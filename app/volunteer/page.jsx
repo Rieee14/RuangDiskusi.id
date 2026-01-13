@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar"
 export default function Volunteer() {
   return (
     <>
-      <Navbar />
+      
       <div className="max-w-6xl mx-auto py-20 px-4 text-center">
         <h1 className="text-3xl font-bold mb-6">Jadilah Pengajar, Ciptakan Perubahan</h1>
         <p className="text-slate-500 mb-10">

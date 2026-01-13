@@ -14,10 +14,9 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/" className="text-slate-700 hover:text-indigo-600">Beranda</Link>
-          <Link href="/kelas" className="text-slate-700 hover:text-indigo-600">Kelas</Link>
-          <Link href="/request" className="text-slate-700 hover:text-indigo-600">Request Kelas</Link>
-          <Link href="/volunteer" className="text-slate-700 hover:text-indigo-600">Volunteer</Link>
+          <Link href="/dashboard/volunteer" className="text-slate-700 hover:text-indigo-600">Beranda</Link>
+          <Link href="/dashboard" className="text-slate-700 hover:text-indigo-600">class</Link>
+          <Link href="/take" className="text-slate-700 hover:text-indigo-600">take class</Link>
           <Link href="/tentang" className="text-slate-700 hover:text-indigo-600">Tentang Kami</Link>
           <Link href="/volunteer/daftar"
             className="bg-indigo-600 hover:bg-indigo-700 transition text-white px-5 py-2 rounded-xl">
@@ -39,7 +38,6 @@ export default function Navbar() {
           <Link href="/" onClick={() => setOpen(false)}>Beranda</Link>
           <Link href="/kelas" onClick={() => setOpen(false)}>Kelas</Link>
           <Link href="/request" onClick={() => setOpen(false)}>Request Kelas</Link>
-          <Link href="/volunteer" onClick={() => setOpen(false)}>Volunteer</Link>
           <Link href="/tentang" onClick={() => setOpen(false)}>Tentang Kami</Link>
           <Link href="/volunteer/daftar"
             className="bg-indigo-600 text-white py-2 rounded-lg text-center">
