@@ -1,19 +1,25 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { getVolunteers, deleteVolunteer } from "@/lib/volunteerDB"
+import { getAllVolunteers, deleteVolunteer } from "@/lib/volunteerDB"
+
+type Volunteer = {
+  name: string
+  email: string
+  bidang: string
+}
 
 export default function AdminVolunteers() {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState<Volunteer[]>([])
 
   useEffect(() => {
-    setUsers(getVolunteers())
+    setUsers(getAllVolunteers())
   }, [])
 
-  const remove = (email) => {
+  const remove = (email: string) => {
     if (!confirm("Yakin mau hapus volunteer ini?")) return
     deleteVolunteer(email)
-    setUsers(getVolunteers())
+    setUsers(getAllVolunteers())
   }
 
   return (
@@ -34,7 +40,7 @@ export default function AdminVolunteers() {
             <tr key={u.email} className="border-b">
               <td className="p-2">{u.name}</td>
               <td className="p-2">{u.email}</td>
-              <td className="p-2">{u.skill}</td>
+              <td className="p-2">{u.bidang}</td>
               <td className="p-2">
                 <button
                   onClick={() => remove(u.email)}
