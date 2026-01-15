@@ -15,8 +15,8 @@ import {
 export default function Dashboard() {
   const [requests, setRequests] = useState([])
   const [classes, setClasses] = useState([])
-
   const [showModal, setShowModal] = useState(false)
+
   const [newClass, setNewClass] = useState({
     title: "",
     subject: "",
@@ -44,7 +44,8 @@ export default function Dashboard() {
           title: `${r.subject} ${r.level}`,
           level: r.level,
           subject: r.subject,
-          time: "Akan dijadwalkan",
+          time: r.requestedSchedule,
+          requestedSchedule: r.requestedSchedule,
           students: [],
           createdAt: new Date().toISOString()
         })
@@ -59,18 +60,8 @@ export default function Dashboard() {
     setClasses(getClasses())
   }
 
-  const acceptStudent = (classId, studentId) => {
-    accStudent(classId, studentId)
-    setClasses(getClasses())
-  }
-
-  const rejectStudentLocal = (classId, studentId) => {
-    rejectStudent(classId, studentId)
-    setClasses(getClasses())
-  }
-
   const createClass = () => {
-    if (!newClass.title || !newClass.subject || !newClass.level) {
+    if (!newClass.title || !newClass.subject || !newClass.level || !newClass.time) {
       alert("Lengkapi semua field")
       return
     }
@@ -79,6 +70,7 @@ export default function Dashboard() {
     classes.push({
       id: Date.now(),
       ...newClass,
+      requestedSchedule: null,
       students: [],
       createdAt: new Date().toISOString()
     })
@@ -92,54 +84,39 @@ export default function Dashboard() {
   return (
     <>
       <Navbar1 />
-      <div className="max-w-7xl mx-auto py-20 px-4 space-y-10">
-<div className="grid md:grid-cols-2 gap-6">
-        <StatBar
-  title="Request Masuk"
-  value={requests.filter(r => r.status === "open").length}
-  max={requests.length || 1}
-  color="bg-indigo-600"
-  icon="📥"
-/>
 
-<StatBar
-  title="Kelas Diambil"
-  value={requests.filter(r => r.status === "taken").length}
-  max={requests.length || 1}
-  color="bg-emerald-600"
-  icon="👨‍🏫"
-/>
-</div>
+      <div className="max-w-7xl mx-auto py-20 px-4 space-y-10">
+
+        {/* STAT */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <StatBar title="Request Masuk" value={requests.filter(r => r.status === "open").length} max={requests.length || 1} color="bg-indigo-600" icon="📥" />
+          <StatBar title="Kelas Diambil" value={requests.filter(r => r.status === "taken").length} max={requests.length || 1} color="bg-emerald-600" icon="👨‍🏫" />
+        </div>
 
         {/* REQUEST SISWA */}
         <div>
           <h2 className="font-semibold mb-4">Request Siswa</h2>
+
           {requests.filter(r => r.status === "open").map(r => (
-            <div key={r.id} className="border p-4 rounded-xl mb-3 space-y-1">
-              <div className="font-semibold">{r.subject} – {r.level}</div>
+            <div key={r.id} className="border rounded-xl p-5 mb-4 space-y-2 bg-white shadow-sm">
+              <div className="font-semibold text-lg">{r.subject} – {r.level}</div>
               <div className="text-sm text-slate-600">{r.problem}</div>
 
-              <div className="flex gap-3 mt-2">
-                <button onClick={() => takeRequest(r.id)} className="bg-green-600 text-white px-4 py-1 rounded">
-                  Ambil
-                </button>
-                <button onClick={() => deleteRequest(r.id)} className="bg-red-600 text-white px-4 py-1 rounded">
-                  Hapus
-                </button>
+              <div className="text-xs text-indigo-600">
+                ⏰ Jadwal diminta: {new Date(r.requestedSchedule).toLocaleString()}
+              </div>
+
+              <div className="flex gap-3 pt-2">
+                <button onClick={() => takeRequest(r.id)} className="bg-emerald-600 text-white px-4 py-1 rounded">Ambil</button>
+                <button onClick={() => deleteRequest(r.id)} className="bg-red-600 text-white px-4 py-1 rounded">Hapus</button>
               </div>
             </div>
           ))}
         </div>
-
       </div>
 
-      {/* FLOATING BUTTON */}
-      <button
-        onClick={() => setShowModal(true)}
-        className="fixed bottom-6 left-6 bg-indigo-600 hover:bg-indigo-700 text-white w-14 h-14 rounded-full text-3xl flex items-center justify-center shadow-xl z-50"
-      >
-        +
-      </button>
+      {/* FLOAT BUTTON */}
+      <button onClick={() => setShowModal(true)} className="fixed bottom-6 left-6 bg-indigo-600 text-white w-14 h-14 rounded-full text-3xl shadow-xl z-50">+</button>
 
       {/* MODAL */}
       {showModal && (
@@ -153,10 +130,11 @@ export default function Dashboard() {
               <option value="">Pilih Jenjang</option>
               <option>SD</option><option>SMP</option><option>SMA</option><option>SMK</option>
             </select>
-            <input placeholder="Jadwal" value={newClass.time} onChange={e => setNewClass({ ...newClass, time: e.target.value })} className="w-full border p-3 rounded-lg" />
+
+            <input type="datetime-local" value={newClass.time} onChange={e => setNewClass({ ...newClass, time: e.target.value })} className="w-full border p-3 rounded-lg" />
 
             <div className="flex justify-end gap-3 pt-2">
-              <button onClick={() => setShowModal(false)} className="px-4 py-2 border rounded-lg">Batal</button>
+              <button onClick={() => setShowModal(false)} className="border px-4 py-2 rounded-lg">Batal</button>
               <button onClick={createClass} className="bg-indigo-600 text-white px-4 py-2 rounded-lg">Simpan</button>
             </div>
           </div>

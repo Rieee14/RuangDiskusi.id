@@ -34,29 +34,8 @@ export default function VolunteerDashboard() {
           onClick={() => router.push("/kelas")}
           className="bg-white text-indigo-700 font-semibold px-8 py-4 rounded-2xl shadow-lg hover:scale-105 transition"
         >
-          Lihat Kelas Publik
+          Buka Kelas Sekarang
         </button>
-      </section>
-
-      {/* FITUR */}
-      <section className="max-w-7xl mx-auto py-24 px-4 grid md:grid-cols-3 gap-12 text-center">
-        <div className="border rounded-3xl p-10 hover:shadow-xl transition">
-          <BookOpen className="mx-auto mb-4 text-indigo-600" size={42} />
-          <h3 className="font-bold mb-2">Buka Kelas</h3>
-          <p className="text-slate-500">Buat ruang belajar gratis sesuai keahlianmu.</p>
-        </div>
-
-        <div className="border rounded-3xl p-10 hover:shadow-xl transition">
-          <Users className="mx-auto mb-4 text-indigo-600" size={42} />
-          <h3 className="font-bold mb-2">Terima Siswa</h3>
-          <p className="text-slate-500">Kelola dan bimbing siswa yang mendaftar.</p>
-        </div>
-
-        <div className="border rounded-3xl p-10 hover:shadow-xl transition">
-          <HandHeart className="mx-auto mb-4 text-indigo-600" size={42} />
-          <h3 className="font-bold mb-2">Beri Dampak</h3>
-          <p className="text-slate-500">Setiap jam mengajar = perubahan masa depan.</p>
-        </div>
       </section>
 
       {/* CTA */}

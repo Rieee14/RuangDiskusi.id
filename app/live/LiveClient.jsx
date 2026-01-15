@@ -57,7 +57,7 @@ export default function LiveClient() {
           height: { ideal: 720 },
           facingMode: "user"
         },
-        audio: true
+        audio: false
       })
       
       streamRef.current = stream

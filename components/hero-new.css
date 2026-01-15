@@ -110,6 +110,7 @@
 
   .hero-new h1 {
     font-size: 26px;
+    text-align: center;
   }
 
   .dots {
@@ -131,5 +132,6 @@
 
   .hero-new h1 {
     font-size: 22px;
+    text-align: center;
   }
 }

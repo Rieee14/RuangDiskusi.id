@@ -45,7 +45,7 @@ export default function Detail() {
         <div className="space-y-4 mb-10">
           <p>📚 Mata Pelajaran: {kelas.subject}</p>
           <p>🎓 Jenjang: {kelas.level}</p>
-          <p>⏰ Jadwal: {kelas.time}</p>
+          <p>⏰ Jadwal: {kelas.time || "Belum dijadwalkan"}</p>
         </div>
 
         <div className="border p-6 rounded-xl mb-8">

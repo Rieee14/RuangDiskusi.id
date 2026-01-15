@@ -32,51 +32,74 @@ export default function MissionSection() {
 
       {/* 1 */}
       <div className="mission-card right gradient-purple">
-        <div className="mission-text">
-          <h3>Belajar <span>Gratis</span> & Inklusif</h3>
-          <p>EduCare menyediakan ruang belajar gratis bagi siswa SD–SMA tanpa hambatan biaya dan lokasi.</p>
-        </div>
-        <div className="mission-image">
-          <div className="image-blur blob-1"></div>
-          <div className="image-wrap blob-1"><img src="/3.jpg"/></div>
-        </div>
-      </div>
+  <div className="mission-text">
+    <h3>Belajar <span>Gratis</span> & Inklusif</h3>
+    <p>
+      EduCare menyediakan ruang belajar gratis bagi siswa SD–SMA tanpa hambatan biaya dan lokasi.
+    </p>
+  </div>
+
+  <div className="mission-image">
+    <div className="image-blur blob-1"></div>
+
+    {/* FOTO BEBAS */}
+    <div className="image-wrap free-photo">
+      <img src="/1.png" alt="Mission 1" />
+    </div>
+  </div>
+</div>
+
+
 
       {/* 2 */}
       <div className="mission-card left gradient-blue">
-        <div className="mission-image">
-          <div className="image-blur blob-2"></div>
-          <div className="image-wrap blob-2"><img src="/1.jpg"/></div>
-        </div>
-        <div className="mission-text">
-          <h3>Akses <span>Pengajar</span> Profesional</h3>
-          <p>Belajar dari mahasiswa, dosen, dan profesional industri.</p>
-        </div>
-      </div>
+  <div className="mission-text">
+    <h3>Akses <span>Pengajar</span> Profesional</h3>
+    <p>Belajar dari mahasiswa, dosen, dan profesional industri.</p>
+  </div>
+
+  <div className="mission-image">
+    <div className="image-blur blob-1"></div>
+
+    {/* FOTO BEBAS */}
+    <div className="image-wrap free-photo">
+      <img src="/2.png" alt="Mission 2" />
+    </div>
+  </div>
+</div>
 
       {/* 3 */}
       <div className="mission-card right gradient-pink">
-        <div className="mission-text">
-          <h3>Wadah <span>Kontribusi</span> Sosial</h3>
+  <div className="mission-text">
+    <h3>Wadah <span>Kontribusi</span> Sosial</h3>
           <p>Volunteer bisa memberi dampak langsung untuk pendidikan Indonesia.</p>
-        </div>
-        <div className="mission-image">
-          <div className="image-blur blob-3"></div>
-          <div className="image-wrap blob-3"><img src="/4.jpg"/></div>
-        </div>
-      </div>
+  </div>
 
+  <div className="mission-image">
+    <div className="image-blur blob-1"></div>
+
+    {/* FOTO BEBAS */}
+    <div className="image-wrap free-photo">
+      <img src="/3.png" alt="Mission 2" />
+    </div>
+  </div>
+</div>
       {/* 4 */}
       <div className="mission-card left gradient-green">
-        <div className="mission-image">
-          <div className="image-blur blob-4"></div>
-          <div className="image-wrap blob-4"><img src="/5.jpg"/></div>
-        </div>
-        <div className="mission-text">
-          <h3>Dampak <span>Berkelanjutan</span></h3>
+  <div className="mission-text">
+    <h3>Dampak <span>Berkelanjutan</span></h3>
           <p>Membangun masa depan pendidikan Indonesia yang setara dan inklusif.</p>
-        </div>
-      </div>
+  </div>
+
+  <div className="mission-image">
+    <div className="image-blur blob-1"></div>
+
+    {/* FOTO BEBAS */}
+    <div className="image-wrap free-photo">
+      <img src="/4.png" alt="Mission 2" />
+    </div>
+  </div>
+</div>
 
     </section>
   )

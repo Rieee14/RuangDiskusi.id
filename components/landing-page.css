@@ -72,26 +72,36 @@
   .lp-rooti {
     flex-direction: column;
     padding: 56px 20px;
-    gap: 36px;
+    gap: 24px;
     text-align: center;
   }
 
-  /* PINDAHKAN LOGO KE ATAS */
-  .lp-logo {
-    order: -2;
-    margin: 0 auto 16px;
+  /* PAKSA URUTAN VISUAL */
+  .lp-left {
+    display: contents;
   }
 
-  /* GAMBAR DI BAWAH LOGO */
+  /* URUTAN BARU */
+  .lp-logo {
+    order: 1;
+    margin: 0 auto 14px;
+  }
+
   .lp-right {
-    order: -1;
+    order: 2;
+  }
+
+  .lp-left h1 {
+    order: 3;
+    font-size: 30px;
+  }
+
+  .lp-btn {
+    order: 4;
+    margin-top: 10px;
   }
 
   .lp-right img {
     width: 260px;
-  }
-
-  .lp-left h1 {
-    font-size: 30px;
   }
 }
