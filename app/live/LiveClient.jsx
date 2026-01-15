@@ -1,3 +1,5 @@
+// app/live/LiveClient.jsx
+
 'use client'
 
 import { useEffect, useState } from "react"
@@ -37,7 +39,7 @@ export default function LiveClient() {
 
   const endLive = () => {
     clearLiveChat(id)
-    router.push("/dashboard/siswa")
+    router.push("/dashboard/volunteer")
   }
 
   return (

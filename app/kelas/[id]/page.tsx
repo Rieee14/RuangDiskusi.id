@@ -7,16 +7,32 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 
 export default function Detail() {
-  const { id } = useParams()
-  const [kelas, setKelas] = useState(null)
+  const { id } = useParams<{ id: string }>()
+  const [kelas, setKelas] = useState<any>(null)
+  const [user, setUser] = useState<any>(null)
 
   useEffect(() => {
+    if (!id) return
     setKelas(getClassById(id))
+
+    const u = JSON.parse(localStorage.getItem("EDUCARE_USER") || "null")
+    setUser(u)
   }, [id])
 
   if (!kelas) return null
 
-  const isJoined = kelas.students?.find(s => s.name === "Siswa Baru")
+  if (!user) {
+    return (
+      <div className="p-20 text-center">
+        <p className="mb-4">Kamu harus login dulu untuk mendaftar kelas</p>
+        <Link href="/login" className="bg-indigo-600 text-white px-6 py-3 rounded-xl">
+          Login
+        </Link>
+      </div>
+    )
+  }
+
+  const isJoined = (kelas.students || []).some((s:any) => s.id === user.id)
 
   return (
     <>
@@ -37,7 +53,6 @@ export default function Detail() {
           <p>Volunteer EduCare</p>
         </div>
 
-        {/* ===== BUTTON LOGIC ===== */}
         {isJoined ? (
           <Link
             href={`/live?class=${kelas.id}`}
@@ -48,7 +63,7 @@ export default function Detail() {
         ) : (
           <button
             onClick={() => {
-              const ok = joinClassDB(kelas.id)
+              const ok = joinClassDB(kelas.id, user)
               if (ok) {
                 setKelas(getClassById(kelas.id))
                 alert("Berhasil daftar! Sekarang kamu bisa Join Live.")

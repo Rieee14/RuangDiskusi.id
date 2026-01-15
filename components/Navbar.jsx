@@ -16,7 +16,7 @@ export default function Navbar() {
         <div className="relative w-64 h-14 flex items-center">
   <Link
     href="/"
-    className="absolute -top-8 -left-16 h-28 w-64"
+    className="absolute -top-8 -left-32 h-28 w-64"
   >
     <Image
       src="/gambar.png"

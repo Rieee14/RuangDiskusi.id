@@ -1,6 +1,8 @@
 "use client"
 
 import Navbar1 from "@/components/Navbar1"
+import { publishRequestToClass } from "@/lib/fakeDB"
+import { accClass } from "@/lib/fakeDB"
 import { useEffect, useState } from "react"
 import {
   getRequests, saveRequests,

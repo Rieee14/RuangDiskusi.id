@@ -1,6 +1,6 @@
 "use client"
 
-import Navbar from "@/components/Navbar"
+import Navbar1 from "@/components/Navbar1"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 
@@ -24,7 +24,7 @@ export default function ProfilVolunteer() {
 
   return (
     <>
-      <Navbar />
+      <Navbar1 />
 
       <section className="min-h-screen bg-slate-50 p-6">
         <div className="max-w-4xl mx-auto bg-white p-10 rounded-2xl shadow">

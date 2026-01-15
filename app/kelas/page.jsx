@@ -1,19 +1,21 @@
-// app/kelas/page.tsx
-
 "use client"
 
 import Navbar from "@/components/Navbar"
 import ClassCard from "@/components/ClassCard"
 import { useEffect, useState } from "react"
-import { getClasses } from "@/lib/fakeDB"
-import { getAvailableClasses } from "@/lib/fakeDB" 
-import link from "next/link"
+import { getAvailableClasses } from "@/lib/fakeDB"
 
 export default function Kelas() {
   const [classes, setClasses] = useState([])
 
   useEffect(() => {
-    setClasses(getAvailableClasses())
+    const user = JSON.parse(localStorage.getItem("EDUCARE_USER") || "null")
+
+    if (user) {
+      setClasses(getAvailableClasses(user))
+    } else {
+      setClasses(getAvailableClasses({ id: "__guest__" }))
+    }
   }, [])
 
   return (
@@ -28,11 +30,17 @@ export default function Kelas() {
             <h3 className="font-semibold">Tidak menemukan kelas?</h3>
             <p className="text-sm text-slate-600">Ajukan kebutuhan belajarmu</p>
           </div>
-          <a href="/request" className="bg-indigo-600 text-white px-6 py-3 rounded-xl">+ Request</a>
+          <a href="/request" className="bg-indigo-600 text-white px-6 py-3 rounded-xl">
+            + Request
+          </a>
         </div>
 
         {/* LIST */}
         <div className="grid md:grid-cols-3 gap-8">
+          {classes.length === 0 && (
+            <p className="text-slate-400">Belum ada kelas tersedia</p>
+          )}
+
           {classes.map(c => <ClassCard key={c.id} {...c} />)}
         </div>
       </div>
