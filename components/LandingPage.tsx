@@ -3,7 +3,7 @@ import "@/app/hero.css"
 
 export default function LandingPage() {
   return (
-    <main className="lp-root">
+    <main className="lp-rooti">
 
       <div className="lp-left">
         <div className="lp-logo">

@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/kelas/[id]/page.tsx", "app/dashboard/volunteer/page.jsx", "app/kelas/page.jsx", "app/live/LiveClient.jsx", "app/dashboard/admin/volunteers/page.tsx"  ],
+, "app/kelas/[id]/page.tsx", "app/dashboard/volunteer/page.jsx", "app/kelas/page.jsx", "app/live/LiveClient.jsx", "app/dashboard/admin/volunteers/page.tsx", "components/RolePicker.jsx"  ],
   "exclude": ["node_modules"]
 }

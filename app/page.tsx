@@ -3,6 +3,8 @@
 import Footer from "@/components/Footer"
 import ThreeSteps from "@/components/ThreeSteps"
 import LandingPage from "@/components/LandingPage"
+import RolePicker from "@/components/RolePicker"
+
 
 export default function Home() {
   return (
@@ -36,14 +38,12 @@ export default function Home() {
 
     <div className="text">
       <h1>
-        Belajar Gratis untuk <br />
-        Masa Depan Lebih <br />
+        Belajar Gratis untuk
+        Masa  Depan Lebih 
         Setara
       </h1>
       <p>
-        Inisiatif sociopreneur di bidang pendidikan yang menjembatani siswa
-        dengan para volunteer pengajar profesional untuk menciptakan
-        pembelajaran yang inklusif dan berdampak.
+        Ruang Diskusi lahir sebagai jembatan antara siswa yang membutuhkan dan para volunteer pengajar yang ingin berkontribusi, sehingga tercipta pemerataan pendidikan berbasis gotong royong digital.
       </p>
     </div>
   </div>
@@ -57,6 +57,7 @@ export default function Home() {
 </section>
 
 <ThreeSteps />
+<RolePicker />
 
 {/* ===== TUJUAN EDUCARE ===== */}
 <section className="bg-black py-24 sm:py-32">

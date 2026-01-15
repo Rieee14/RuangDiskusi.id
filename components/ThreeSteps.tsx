@@ -1,3 +1,5 @@
+// @/components/ThreeSteps.tsx
+
 "use client"
 import "./three-steps.css"
 

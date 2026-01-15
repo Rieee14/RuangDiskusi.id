@@ -128,7 +128,7 @@ p {
 .hero-new {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(180deg, #cfd2ff 0%, #CFF8EC 100%);
+  background: linear-gradient(180deg, #e796fc 0%, #a2e0ec 100%);
   overflow: hidden;
 }
 
@@ -159,14 +159,16 @@ p {
   padding-top: 140px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  align-items: start;
 }
 
 /* Foto */
 .photo-wrapper {
   position: relative;
-  width: 420px;
-  height: 420px;
+  width: 320px;
+  height: 320px;
+  margin-bottom: 100px;
+  margin-left: 45px;
   border-radius: 50%;
   overflow: hidden;
   background: white;
@@ -181,6 +183,7 @@ p {
 .text h1 {
   font-size: 60px;
   font-weight: 800;
+  text-align: left;
   color: white;
   margin-left: -120px;
   text-shadow: 0 8px 24px rgba(0,0,0,.15);
@@ -189,7 +192,7 @@ p {
   margin-top: 24px;
   margin-left: -120px;
   color: #555;
-  max-width: 480px;
+  max-width: 700px;
 }
 
 /* Dots */
@@ -217,4 +220,98 @@ p {
 @media(max-width:600px){
   .photo-wrapper { width:260px; height:260px; margin:auto; }
   .text h1 { font-size:34px; }
+}
+/* =========================
+   LANDING PAGE STYLES
+========================= */
+
+/* HERO */
+.hero-top {
+  min-height: 100vh;
+  background: linear-gradient(90deg,#a3e7df,#7fdcf0);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 8%;
+}
+
+.hero-top h1 {
+  font-size: 56px;
+  color: white;
+  line-height: 1.1;
+}
+
+.hero-top .learn-btn {
+  margin-top: 32px;
+  background: white;
+  color: #4f46e5;
+  padding: 14px 36px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.hero-illustration img {
+  width: 100%;
+}
+
+/* ABOUT */
+.about-sec {
+  background: linear-gradient(180deg,#41e6a4,#9de7ff);
+  padding: 120px 8%;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.about-sec h2 {
+  color: white;
+  font-size: 42px;
+}
+
+.about-sec p {
+  color: white;
+}
+
+/* ROLE */
+.role-sec {
+  background: linear-gradient(180deg,#9de7ff,#e2b7ff);
+  padding: 120px 8%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.role-box {
+  background: rgba(255,255,255,.25);
+  padding: 48px;
+  border-radius: 32px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* STEPS */
+.steps-sec {
+  background: linear-gradient(180deg,#c3b8ff,#7bbcff);
+  padding: 120px 8%;
+  text-align: center;
+}
+
+.steps-wrap {
+  max-width: 900px;
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+}
+
+/* VISION */
+.vision-sec {
+  background: linear-gradient(180deg,#7bbcff,#cfefff);
+  padding: 140px 8%;
+  text-align: center;
+}
+
+.vision-sec p {
+  color: white;
 }
