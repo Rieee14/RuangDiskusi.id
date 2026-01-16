@@ -38,7 +38,7 @@ export default function Navbar() {
 
   // ✅ LOGIKA AKTIF DEFAULT
   const isActive = (href) => {
-    if (pathname === "/" && href === "/dashboard/siswa/") return true
+    if (pathname === "/" && href === "/dashboard/siswa/login") return true
     return pathname === href
   }
 
