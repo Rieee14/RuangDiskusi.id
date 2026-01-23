@@ -1,4 +1,3 @@
-
 "use client"
 import "./take-dashboard.css"
 
@@ -28,10 +27,6 @@ export default function TakeDashboard() {
     setRequests(getRequests())
   }, [])
 
-  /* =========================
-     REQUEST ACTIONS
-  ========================= */
-
   const deleteRequest = (id) => {
     const newData = requests.filter(r => r.id !== id)
     setRequests(newData)
@@ -40,12 +35,8 @@ export default function TakeDashboard() {
 
   const takeRequest = (id) => {
     publishRequestToClass(id)
-    setRequests(getRequests()) // refresh state
+    setRequests(getRequests())
   }
-
-  /* =========================
-     CREATE CLASS (MANUAL)
-  ========================= */
 
   const createClass = () => {
     if (!newClass.title || !newClass.subject || !newClass.level || !newClass.time) {
@@ -54,7 +45,6 @@ export default function TakeDashboard() {
     }
 
     const classes = getClasses()
-
     classes.push({
       id: Date.now(),
       title: newClass.title,
@@ -68,55 +58,56 @@ export default function TakeDashboard() {
     })
 
     saveClasses(classes)
-
     setShowModal(false)
     setNewClass({ title: "", subject: "", level: "", time: "" })
   }
-
-  /* =========================
-     RENDER
-  ========================= */
 
   return (
     <>
       <Navbar1 />
 
       <div className="take-dashboard">
-        <h1>Kelas Aktif</h1>
 
         {/* STAT */}
         <div className="stat-grid">
           <StatBox
-  title="Permintaan kelas"
-  value={requests.length}
-  max={requests.length || 1}
-  icon="/icons/request.png"
-/>
+            title="Permintaan kelas"
+            value={requests.length}
+            max={requests.length || 1}
+            icon="/icons/request.png"
+          />
 
-<StatBox
-  title="Kelas dijadwalkan"
-  value={getClasses().length}
-  max={getClasses().length || 1}
-  icon="/icons/class.png"
-/>
-
+          <StatBox
+            title="Kelas dijadwalkan"
+            value={getClasses().length}
+            max={getClasses().length || 1}
+            icon="/icons/class.png"
+          />
         </div>
 
         {/* REQUEST LIST */}
         <div className="request-section">
-          <h2>Permintaan kelas</h2>
+          <h2>
+            <i className="bi bi-list-task me-2"></i>
+            Permintaan kelas
+          </h2>
 
           <div className="request-grid">
             {requests.map(r => (
               <div key={r.id} className="request-card">
+
                 <div className="request-title">
+                 
                   {r.subject} – {r.level}
                 </div>
 
-                <div className="request-desc">{r.problem}</div>
+                <div className="request-desc">
+                  {r.problem}
+                </div>
 
                 <div className="request-time">
-                  ⏰ {new Date(r.requestedSchedule).toLocaleString()}
+                  <i className="bi bi-clock me-2"></i>
+                  {new Date(r.requestedSchedule).toLocaleString()}
                 </div>
 
                 <div className="request-actions">
@@ -124,6 +115,7 @@ export default function TakeDashboard() {
                     className="btn btn-ambil"
                     onClick={() => takeRequest(r.id)}
                   >
+                    <i className="bi bi-check-circle me-1"></i>
                     Ambil
                   </button>
 
@@ -131,6 +123,7 @@ export default function TakeDashboard() {
                     className="btn btn-hapus"
                     onClick={() => deleteRequest(r.id)}
                   >
+                    <i className="bi bi-trash me-1"></i>
                     Hapus
                   </button>
                 </div>
@@ -138,7 +131,10 @@ export default function TakeDashboard() {
             ))}
 
             {requests.length === 0 && (
-              <p>Tidak ada permintaan kelas.</p>
+              <p className="empty-text">
+                <i className="bi bi-inbox me-2"></i>
+                Tidak ada permintaan kelas.
+              </p>
             )}
           </div>
         </div>
@@ -146,14 +142,17 @@ export default function TakeDashboard() {
 
       {/* FLOAT BUTTON */}
       <button className="float-btn" onClick={() => setShowModal(true)}>
-        +
+        <i className="bi bi-plus-lg"></i>
       </button>
 
       {/* MODAL */}
       {showModal && (
         <div className="modal-backdrop">
           <div className="modal">
-            <h3>Tambah Kelas</h3>
+            <h3>
+              <i className="bi bi-plus-circle me-2"></i>
+              Tambah Kelas
+            </h3>
 
             <input
               placeholder="Judul"
@@ -181,6 +180,7 @@ export default function TakeDashboard() {
               <option>SD</option>
               <option>SMP</option>
               <option>SMA</option>
+              <option >Lainnya...</option>
             </select>
 
             <input
@@ -192,8 +192,12 @@ export default function TakeDashboard() {
             />
 
             <div className="modal-actions">
-              <button onClick={() => setShowModal(false)}>Batal</button>
+              <button onClick={() => setShowModal(false)}>
+                Batal
+              </button>
+
               <button className="btn btn-ambil" onClick={createClass}>
+                <i className="bi bi-save me-1"></i>
                 Simpan
               </button>
             </div>

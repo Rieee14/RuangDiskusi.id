@@ -39,19 +39,21 @@ export default function KelasSaya() {
                 <h3 className={styles.cardTitle}>{cls.title}</h3>
 
                 <p className={styles.meta}>
-                  📘 {cls.subject}
-                </p>
-                <p className={styles.meta}>
-                  🎓 {cls.level}
-                </p>
-                <p className={styles.meta}>
-                  ⏰ {cls.time}
+                  <i className="bi bi-book text-blue-600 text-lg"></i>
+                  <span className="text-slate-600 p-2">{cls.subject}</span>
                 </p>
 
-                <Link
-                  href={`/kelas/${cls.id}`}
-                  className={styles.button}
-                >
+                <p className={styles.meta}>
+                  <i className="bi bi-mortarboard text-emerald-600 text-lg"></i>
+                  <span className="text-slate-600 p-2">{cls.level}</span>
+                </p>
+
+                <p className={styles.meta}>
+                  <i className="bi bi-clock text-amber-600 text-lg"></i>
+                  <span className="text-slate-600 p-2">{cls.time}</span>
+                </p>
+
+                <Link href={`/kelas/${cls.id}`} className={styles.button}>
                   Lihat Detail
                 </Link>
               </div>

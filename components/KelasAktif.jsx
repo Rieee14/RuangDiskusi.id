@@ -27,7 +27,7 @@ export default function KelasAktif() {
 
         {/* HEADER */}
         <div className={styles.headerTop}>
-          <h1 className={styles.title}>Kelas Aktif</h1>
+          <h1 className={styles.title}>Katalog Kelas</h1>
 
           <div className={styles.searchBox}>
             <input

@@ -180,7 +180,7 @@ export default function ProfilVolunteer() {
           margin-top: 4px;
           font-size: 16px;
           font-weight: 600;
-          color: #fff;
+          color: #000000;
         }
 
         .tags {

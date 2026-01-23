@@ -7,6 +7,8 @@ import StatsSection from "@/components/StatsSection"
 import HeroSection from "@/components/HeroSection"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
+import RolePicker from "@/components/RolePicker"
+import Kosong from "@/components/Kosong"
 
 export default function Tentang() {
   return (
@@ -14,11 +16,13 @@ export default function Tentang() {
       <>
           <Navbar />
               <LandingPage />
-              <HeroSection />
-              <VisionSection />
-              <MissionSection />
-              <StatsSection />
-              <Footer />
+                                  <HeroSection />
+                                  <RolePicker />
+                                  <VisionSection />
+                                  <MissionSection />
+                                  <StatsSection />
+                                  <Kosong />
+                                  <Footer />
           </>
     </>
   )
