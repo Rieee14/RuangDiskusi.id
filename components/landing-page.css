@@ -41,7 +41,7 @@
   background: #eaf4d3;
   border: 2px solid #0a39ff;
   color: #0a39ff;
-  padding: 6px 9px;
+  padding: 6px 14px;
   font-size: 13px;
   border-radius: 999px;
   font-weight: 800;
@@ -51,7 +51,7 @@
   transition: all .35s ease;
 }
 
-/* HOVER → TUKAR WARNA */
+/* HOVER */
 .lp-learn-more:hover .lp-btn-pill {
   background: #0a39ff;
   border-color: #fff;
@@ -70,7 +70,6 @@
   gap: 6px;
 }
 
-/* ARROW SHAPE */
 .lp-arrow span {
   width: 14px;
   height: 14px;
@@ -78,20 +77,12 @@
   border-bottom: 3px solid #ffffff;
   transform: rotate(45deg);
   animation: arrowBounce 1.6s infinite;
-  transition: border-color .35s ease;
 }
 
-/* DELAY */
 .lp-arrow span:nth-child(2) {
   animation-delay: .2s;
 }
 
-/* ARROW HOVER CHANGE */
-.lp-learn-more:hover .lp-arrow span {
-  border-color: #0a39ff;
-}
-
-/* ARROW ANIMATION */
 @keyframes arrowBounce {
   0%, 100% {
     transform: rotate(45deg) translateY(0);
@@ -116,20 +107,52 @@
   }
 }
 
-/* ================= MOBILE ================= */
+/* ================= 📱 MOBILE ================= */
 @media (max-width: 900px) {
   .lp-rooti {
     flex-direction: column;
-    padding: 56px 20px;
-    gap: 32px;
+    justify-content: flex-start; /* ⬅️ jangan center */
+    align-items: center;
+    min-height: 100vh;
+    padding: 32px 20px 24px; /* ⬅️ atas dipendekin */
+    gap: 24px;
     text-align: center;
   }
 
-  .lp-left {
-    align-items: center;
+  .lp-right {
+    order: 1;
+    margin-top: 16px; /* ⬅️ jarak aman dari navbar */
   }
 
   .lp-right img {
-    width: 260px;
+    width: 240px;
+  }
+
+  .lp-left {
+    order: 2;
+    align-items: center;
+    margin-top: 16px; /* ⬅️ jarak gambar ke teks */
+  }
+
+  .lp-left h1 {
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .lp-learn-more {
+    margin-top: 8px; /* ⬅️ rapetin tombol */
+  }
+}
+
+
+/* ================= 📱 HP KECIL ================= */
+@media (max-width: 390px) {
+  .lp-right img {
+    width: 220px;
+  }
+
+  .lp-left h1 {
+    font-size: 20px;
   }
 }

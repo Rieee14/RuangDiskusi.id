@@ -119,3 +119,84 @@
   margin-left: 40px;
   color: #64748b;
 }
+/* ============================= */
+/* 📱 TABLET & MOBILE */
+/* ============================= */
+@media (max-width: 768px) {
+
+  /* HEADER jadi vertikal */
+  .header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  /* Judul ke kiri & lebih kecil */
+  .title {
+    margin-left: 0;
+    font-size: 32px;
+  }
+
+  /* Search card full width */
+  .searchWrapper {
+    padding: 16px 20px;
+    border-radius: 28px;
+  }
+
+  /* Isi search jadi vertikal */
+  .searchInner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  /* Request text ke bawah */
+  .request {
+    white-space: normal;
+    text-align: left;
+    font-size: 13px;
+  }
+
+  /* Grid 1 kolom */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .empty {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+/* ============================= */
+/* 📱 HP KECIL */
+/* ============================= */
+@media (max-width: 480px) {
+
+  .container {
+    padding: 0 14px 20px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .input {
+    height: 42px;
+    font-size: 13px;
+    padding: 0 40px 0 16px;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
+
+  .searchWrapper {
+    padding: 14px 16px;
+  }
+
+  .request {
+    font-size: 12px;
+  }
+}
