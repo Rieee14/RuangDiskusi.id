@@ -25,11 +25,10 @@ export default function KelasAktif() {
     <section className={styles.section}>
       <div className={styles.wrapper}>
 
-        {/* ===== HEADER ===== */}
+        {/* HEADER */}
         <div className={styles.headerTop}>
           <h1 className={styles.title}>Kelas Aktif</h1>
 
-          {/* SEARCH */}
           <div className={styles.searchBox}>
             <input
               type="text"
@@ -38,7 +37,6 @@ export default function KelasAktif() {
               onChange={(e) => setKeyword(e.target.value)}
               className={styles.search}
             />
-
             <span className={styles.searchIcon}>
               <i className="bi bi-search"></i>
             </span>
@@ -58,19 +56,20 @@ export default function KelasAktif() {
 
           return (
             <div key={cls.id} className={styles.card}>
-              <div className={styles.cardHeader}>
+              <div className={styles.header}>
                 <div>
                   <strong className={styles.cardTitle}>
                     {cls.title}
                   </strong>
-                  <span className={styles.time}>
-                    <i className="bi bi-clock me-1"></i>
+
+                  <div className={styles.time}>
+                    <i className="bi bi-clock"></i>
                     {cls.time}
-                  </span>
+                  </div>
 
                   {open && (
                     <p className={styles.materi}>
-                      <i className="bi bi-book me-1"></i>
+                      <i className="bi bi-book"></i>
                       Materi: {cls.subject || "Statistika (Mean, Median, Range)"}
                     </p>
                   )}

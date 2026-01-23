@@ -1,57 +1,44 @@
-/* ===============================
-   FULL WIDTH BACKGROUND
-================================ */
+/* FULL WIDTH BACKGROUND */
 .section {
   width: 100vw;
   position: relative;
   left: 50%;
-  right: 50%;
   margin-left: -50vw;
-  margin-right: -50vw;
   min-height: 89vh;
-  background: linear-gradient(135deg, #e9fff6, #d7f3ff);
+  background: #f8fffc;
   padding: 60px 0 80px;
 }
 
-/* ===============================
-   CONTENT WRAPPER
-================================ */
+/* CONTENT */
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* ===============================
-   HEADER TOP
-================================ */
+/* HEADER */
 .headerTop {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 28px;
+  align-items: center;
   gap: 20px;
+  margin-bottom: 28px;
 }
 
-/* ===============================
-   TITLE
-================================ */
 .title {
   font-size: 34px;
   font-weight: 800;
   color: #0b1c3d;
 }
 
-/* ===============================
-   SEARCH BOX
-================================ */
+/* SEARCH */
 .searchBox {
   position: relative;
-  width: 260px;
-  background: #ffffff;
+  width: 600px;
+  background: white;
   border-radius: 999px;
   padding: 6px;
-  box-shadow: 0 10px 28px rgba(11, 28, 61, 0.15);
+  box-shadow: 0 10px 28px rgba(11, 28, 61, .15);
 }
 
 .search {
@@ -59,18 +46,9 @@
   height: 38px;
   padding: 0 42px 0 16px;
   border-radius: 999px;
-  border: 1.5px solid #9ca3af;
+  border: 1.5px solid #eaeaea;
   font-size: 14px;
   outline: none;
-}
-
-.search:focus {
-  border-color: #4f5cff;
-  box-shadow: 0 0 0 3px rgba(79, 92, 255, 0.2);
-}
-
-.search::placeholder {
-  color: #9ca3af;
 }
 
 .searchIcon {
@@ -78,38 +56,29 @@
   right: 18px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 16px;
   color: #64748b;
-  pointer-events: none;
 }
 
-/* ===============================
-   EMPTY STATE
-================================ */
+/* EMPTY */
 .emptyState {
-  background: #ffffff;
+  background: white;
   border: 2px dashed #9ca3af;
   border-radius: 22px;
   padding: 26px;
   text-align: center;
-  font-size: 16px;
   color: #6b7280;
 }
 
-/* ===============================
-   CARD
-================================ */
+/* CARD */
 .card {
-  background: #ffffff;
+  background: white;
   border-radius: 22px;
-  padding: 18px 24px;
+  padding: 1px 18px;
   margin-bottom: 18px;
   border: 2px solid #9ca3af;
 }
 
-/* ===============================
-   CARD HEADER
-================================ */
+/* CARD HEADER */
 .header {
   display: flex;
   justify-content: space-between;
@@ -117,40 +86,46 @@
   gap: 16px;
 }
 
-/* ===============================
-   MATERI
-================================ */
-.materi {
-  margin-top: 6px;
+.cardTitle {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 14px;
   color: #374151;
 }
 
-/* ===============================
-   RIGHT SIDE
-================================ */
+.materi {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* RIGHT */
 .right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* ===============================
-   BUTTONS
-================================ */
+/* BUTTONS */
 .start {
   background: #4f5cff;
   color: white;
   border: none;
   padding: 6px 14px;
-  font-size: 13px;
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
-}
-
-.start:hover {
-  background: #3f49d9;
 }
 
 .cancel {
@@ -158,55 +133,37 @@
   color: white;
   border: none;
   padding: 6px 14px;
-  font-size: 13px;
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
 }
 
-.cancel:hover {
-  background: #e22f2f;
-}
-
-/* ===============================
-   DROPDOWN ARROW
-================================ */
+/* ARROW */
 .arrow {
   cursor: pointer;
   font-size: 18px;
-  transition: transform 0.2s ease;
-  user-select: none;
   color: #374151;
+  transition: transform .2s ease;
 }
 
 .open {
   transform: rotate(180deg);
 }
 
-/* =================================================
-   📱 MOBILE RESPONSIVE
-================================================= */
+/* MOBILE */
 @media (max-width: 768px) {
-  .section {
-    padding: 40px 0 60px;
-  }
-
   .headerTop {
     flex-direction: column;
     align-items: stretch;
   }
 
   .title {
-    font-size: 26px;
     text-align: center;
+    font-size: 26px;
   }
 
   .searchBox {
     width: 100%;
-  }
-
-  .card {
-    padding: 16px;
   }
 
   .header {
@@ -224,17 +181,9 @@
   .cancel {
     flex: 1;
     padding: 10px 0;
-    font-size: 14px;
-  }
-
-  .arrow {
-    font-size: 20px;
   }
 }
 
-/* =================================================
-   📱 SMALL MOBILE
-================================================= */
 @media (max-width: 480px) {
   .title {
     font-size: 22px;

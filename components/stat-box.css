@@ -1,7 +1,7 @@
 .stat-box {
   display: flex;
   align-items: center;
-  aspect-ratio: 5 / 2;
+  aspect-ratio: 0 / 2;
   gap: 16px;
   background: #fff;
   padding: 18px 22px;
