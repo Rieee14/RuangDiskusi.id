@@ -15,7 +15,6 @@ export default function Tentang() {
       <Navbar1 />
                     <LandingPage />
                     <HeroSection />
-                    <ThreeSteps />
                     <VisionSection />
                     <MissionSection />
                     <StatsSection />

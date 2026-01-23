@@ -1,9 +1,10 @@
+// components/HeroSection.jsx
 "use client"
 import "./hero-new.css"
 
 export default function HeroSection() {
   return (
-    <section className="hero-new">
+    <section id="hero-section" className="hero-new">
 
       {/* WAVE BACKGROUND */}
       <svg className="wave" viewBox="0 0 1440 320" preserveAspectRatio="none">

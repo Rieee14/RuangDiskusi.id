@@ -1,49 +1,68 @@
-// app/kelas/page.jsx
-
 "use client"
 
 import Navbar from "@/components/Navbar"
 import ClassCard from "@/components/ClassCard"
 import { useEffect, useState } from "react"
 import { getAvailableClasses } from "@/lib/fakeDB"
+import styles from "./page.module.css"
 
 export default function Kelas() {
   const [classes, setClasses] = useState([])
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("EDUCARE_USER") || "null")
-
-    if (user) {
-      setClasses(getAvailableClasses(user))
-    } else {
-      setClasses(getAvailableClasses({ id: "__guest__" }))
-    }
+    setClasses(
+      user
+        ? getAvailableClasses(user)
+        : getAvailableClasses({ id: "__guest__" })
+    )
   }, [])
 
   return (
     <>
       <Navbar />
-      <div className="max-w-7xl mx-auto py-20 px-4">
-        <h1 className="text-3xl font-bold mb-8">Katalog Kelas</h1>
 
-        {/* CTA */}
-        <div className="bg-indigo-50 border rounded-2xl p-6 mb-12 flex justify-between">
-          <div>
-            <h3 className="font-semibold">Tidak menemukan kelas?</h3>
-            <p className="text-sm text-slate-600">Ajukan kebutuhan belajarmu</p>
+      <div className={styles.bg}>
+        <div className={styles.container}>
+
+          <div className={styles.header}>
+            <h1 className={styles.title}>Katalog Kelas</h1>
+
+            <div className={styles.searchWrapper}>
+              <div className={styles.searchInner}>
+
+                <div className={styles.inputWrap}>
+                  <input
+                    type="text"
+                    placeholder="cari kelas...."
+                    className={styles.input}
+                  />
+
+                  {/* ICON SMOOTH */}
+                  <span className={styles.icon}>
+                    <i className="bi bi-search"></i>
+                  </span>
+                </div>
+
+                <p className={styles.request}>
+                  Tidak menemukan kelas?
+                  <a href="/request">Ajukan disini</a>
+                </p>
+
+              </div>
+            </div>
           </div>
-          <a href="/request" className="bg-indigo-600 text-white px-6 py-3 rounded-xl">
-            + Permintaan
-          </a>
-        </div>
 
-        {/* LIST */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {classes.length === 0 && (
-            <p className="text-slate-400">Belum ada kelas tersedia</p>
-          )}
+          <div className={styles.grid}>
+            {classes.length === 0 && (
+              <p className={styles.empty}>Belum ada kelas tersedia</p>
+            )}
 
-          {classes.map(c => <ClassCard key={c.id} {...c} />)}
+            {classes.map((c) => (
+              <ClassCard key={c.id} {...c} />
+            ))}
+          </div>
+
         </div>
       </div>
     </>

@@ -1,3 +1,4 @@
+// app/dashboard/volunteer/login/page.jsx
 "use client"
 
 import { useRouter } from "next/navigation"
@@ -26,11 +27,14 @@ export default function VolunteerLogin() {
       return
     }
 
-    localStorage.setItem("EDUCARE_ROLE", "volunteer")
-    localStorage.setItem("EDUCARE_USER", JSON.stringify(user))
-    document.cookie = "EDUCARE_LOGIN=true; path=/"
+   localStorage.setItem("EDUCARE_ROLE", "volunteer")
+localStorage.setItem("EDUCARE_USER", JSON.stringify(user))
 
-    router.push("/dashboard/volunteer")
+document.cookie = "EDUCARE_LOGIN=true; path=/"
+document.cookie = "EDUCARE_ROLE=volunteer; path=/"
+
+router.push("/dashboard/volunteer")
+
   }
 
   return (

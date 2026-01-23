@@ -19,7 +19,7 @@ html, body {
 ========================= */
 .volunteer-hero {
   min-height: calc(100vh - 72px);
-  background: #59ffb7;
+  background: linear-gradient(160deg,#50FFB0,#008C9B);
   display: flex;
   align-items: center;
   justify-content: center;

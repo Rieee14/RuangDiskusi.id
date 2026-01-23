@@ -9,6 +9,7 @@ import MissionSection from "@/components/MissionSection"
 import StatsSection from "@/components/StatsSection"
 import HeroSection from "@/components/HeroSection"
 import Navbar2 from "@/components/Navbar2"
+import Kosong from "@/components/Kosong"
 export default function Home() {
   return (
     <>
@@ -16,10 +17,10 @@ export default function Home() {
         <LandingPage />
         <HeroSection />
         <RolePicker />
-        <ThreeSteps />
         <VisionSection />
         <MissionSection />
         <StatsSection />
+        <Kosong />
         <Footer />
     </>
   )

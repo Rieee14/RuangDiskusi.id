@@ -1,11 +1,11 @@
 "use client"
 
-import Navbar from "@/components/Navbar"
+import Navbar1 from "@/components/Navbar1"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 
-export default function ProfilSiswa() {
+export default function ProfilVolunteer() {
   const router = useRouter()
   const [user, setUser] = useState<any>(null)
 
@@ -13,8 +13,8 @@ export default function ProfilSiswa() {
     const role = localStorage.getItem("EDUCARE_ROLE")
     const data = localStorage.getItem("EDUCARE_USER")
 
-    if (role !== "siswa" || !data) {
-      router.push("/dashboard/siswa/login")
+    if (role !== "volunteer" || !data) {
+      router.push("/dashboard/volunteer/login")
       return
     }
 
@@ -33,14 +33,14 @@ export default function ProfilSiswa() {
 
   return (
     <>
-      <Navbar />
+      <Navbar1 />
 
       <section className="wrapper">
         <div className="profile-card">
 
           {/* HEADER */}
           <div className="header">
-            <h1>Profil Siswa</h1>
+            <h1>Profil Relawan</h1>
 
             <button className="logout" onClick={handleLogout}>
               <Image
@@ -55,6 +55,7 @@ export default function ProfilSiswa() {
 
           {/* CONTENT */}
           <div className="grid">
+
             <div>
               <label>Nama</label>
               <p>{user.name}</p>
@@ -64,8 +65,27 @@ export default function ProfilSiswa() {
               <label>Email</label>
               <p>{user.email}</p>
             </div>
-          </div>
 
+            <div>
+              <label>Bidang</label>
+              <p>{user.bidang}</p>
+            </div>
+
+            <div>
+              <label>Mengajar Kelas</label>
+              <div className="tags">
+                {user.kelas?.map((k: string, i: number) => (
+                  <span key={i}>{k}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="full">
+              <label>Bio</label>
+              <p className="bio">{user.bio}</p>
+            </div>
+
+          </div>
         </div>
       </section>
 
@@ -84,7 +104,7 @@ export default function ProfilSiswa() {
           justify-content: center;
           align-items: center;
           padding: 40px 16px;
-          background: linear-gradient(-45deg, #6366f1, #4f46e5, #818cf8, #a5b4fc);
+          background: linear-gradient(-45deg, #10b981, #22c55e, #34d399, #6ee7b7);
           background-size: 400% 400%;
           animation: gradientMove 12s ease infinite;
         }
@@ -96,7 +116,7 @@ export default function ProfilSiswa() {
         }
 
         .profile-card {
-          width: 700px;
+          width: 900px;
           max-width: 95vw;
           padding: 36px;
           border-radius: 28px;
@@ -126,7 +146,7 @@ export default function ProfilSiswa() {
         h1 {
           font-size: 28px;
           font-weight: 800;
-          color: #4338ca;
+          color: #3144b9;
         }
 
         .logout {
@@ -153,14 +173,39 @@ export default function ProfilSiswa() {
         label {
           font-size: 13px;
           font-weight: 700;
-          color: #4338ca;
+          color: #3144b9;
         }
 
         p {
           margin-top: 4px;
           font-size: 16px;
           font-weight: 600;
-          color: #312e81;
+          color: #fff;
+        }
+
+        .tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-top: 6px;
+        }
+
+        .tags span {
+          padding: 6px 14px;
+          background: rgba(16,185,129,0.15);
+          color: #3144b9;
+          border-radius: 999px;
+          font-size: 13px;
+          font-weight: 700;
+        }
+
+        .full {
+          grid-column: 1 / -1;
+        }
+
+        .bio {
+          font-weight: 500;
+          line-height: 1.6;
         }
       `}</style>
     </>

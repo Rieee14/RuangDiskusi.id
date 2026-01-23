@@ -49,7 +49,7 @@ export default function VolunteerDashboard() {
           <button
             className="btn hero-btn"
             onClick={() =>
-              router.push("/dashboard/volunteer/class")
+              router.push("/take")
             }
           >
             Buka Kelas Sekarang

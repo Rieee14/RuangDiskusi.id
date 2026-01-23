@@ -1,11 +1,13 @@
+/* ROOT */
 .lp-rooti {
   width: 100%;
+  min-height: 100vh;
   background: linear-gradient(135deg, #FFDD87, #6FE7C8);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 64px;
   padding: 72px 8%;
+  gap: 64px;
 }
 
 /* LEFT */
@@ -14,49 +16,94 @@
   max-width: 520px;
   display: flex;
   flex-direction: column;
-}
-
-.lp-logo {
-  background: linear-gradient(90deg, #3cffc6, #b06cff);
-  padding: 12px 26px;
-  border-radius: 14px;
-  display: inline-block;
-  margin-bottom: 24px;
-}
-
-.lp-logo-main {
-  font-size: 26px;
-  font-weight: 900;
-  display: block;
-}
-
-.lp-logo-sub {
-  font-size: 12px;
-  letter-spacing: 2px;
+  gap: 28px;
 }
 
 /* TITLE */
 .lp-left h1 {
   font-size: clamp(28px, 4vw, 46px);
   line-height: 1.2;
-  margin-bottom: 28px;
   font-weight: 800;
-  color: #fff;
-  text-shadow: 0 0 18px rgba(255,255,255,0.45);
+  color: #ffffff;
+  text-shadow: 0 10px 6px #00000026;
 }
 
-/* BUTTON */
-.lp-btn {
-  background: rgba(255,255,255,0.35);
-  border: none;
-  padding: 14px 36px;
+/* ================= LEARN MORE ================= */
+.lp-learn-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* BUTTON PILL */
+.lp-btn-pill {
+  background: #eaf4d3;
+  border: 2px solid #0a39ff;
+  color: #0a39ff;
+  padding: 6px 9px;
+  font-size: 13px;
   border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
   cursor: pointer;
-  backdrop-filter: blur(6px);
-  font-size: 15px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.15);
+  transition: all .35s ease;
 }
 
-/* IMAGE */
+/* HOVER → TUKAR WARNA */
+.lp-learn-more:hover .lp-btn-pill {
+  background: #0a39ff;
+  border-color: #fff;
+  color: #fff;
+}
+
+/* CLICK */
+.lp-btn-pill:active {
+  transform: scale(.95);
+}
+
+/* ================= ARROW ================= */
+.lp-arrow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ARROW SHAPE */
+.lp-arrow span {
+  width: 14px;
+  height: 14px;
+  border-right: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+  transform: rotate(45deg);
+  animation: arrowBounce 1.6s infinite;
+  transition: border-color .35s ease;
+}
+
+/* DELAY */
+.lp-arrow span:nth-child(2) {
+  animation-delay: .2s;
+}
+
+/* ARROW HOVER CHANGE */
+.lp-learn-more:hover .lp-arrow span {
+  border-color: #0a39ff;
+}
+
+/* ARROW ANIMATION */
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: rotate(45deg) translateY(0);
+    opacity: .6;
+  }
+  50% {
+    transform: rotate(45deg) translateY(6px);
+    opacity: 1;
+  }
+}
+
+/* ================= RIGHT IMAGE ================= */
 .lp-right img {
   width: 360px;
   max-width: 90vw;
@@ -64,7 +111,9 @@
 }
 
 @keyframes float {
-  50% { transform: translateY(-15px); }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 /* ================= MOBILE ================= */
@@ -72,33 +121,12 @@
   .lp-rooti {
     flex-direction: column;
     padding: 56px 20px;
-    gap: 24px;
+    gap: 32px;
     text-align: center;
   }
 
-  /* PAKSA URUTAN VISUAL */
   .lp-left {
-    display: contents;
-  }
-
-  /* URUTAN BARU */
-  .lp-logo {
-    order: 1;
-    margin: 0 auto 14px;
-  }
-
-  .lp-right {
-    order: 2;
-  }
-
-  .lp-left h1 {
-    order: 3;
-    font-size: 30px;
-  }
-
-  .lp-btn {
-    order: 4;
-    margin-top: 10px;
+    align-items: center;
   }
 
   .lp-right img {

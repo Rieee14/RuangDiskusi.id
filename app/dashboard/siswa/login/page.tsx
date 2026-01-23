@@ -11,22 +11,28 @@ export default function LoginStudent() {
   const [show, setShow] = useState(false)
 
   const login = () => {
-    if (!email || !password) {
-      alert("Email dan password wajib diisi")
-      return
-    }
-
-    const user = loginStudent(email, password)
-    if (!user) {
-      alert("Login gagal")
-      return
-    }
-
-    localStorage.setItem("EDUCARE_ROLE", "siswa")
-    localStorage.setItem("EDUCARE_USER", JSON.stringify(user))
-
-    router.push("/dashboard/siswa")
+  if (!email || !password) {
+    alert("Email dan password wajib diisi")
+    return
   }
+
+  const user = loginStudent(email, password)
+  if (!user) {
+    alert("Login gagal")
+    return
+  }
+
+  // ✅ LOCAL STORAGE
+  localStorage.setItem("EDUCARE_ROLE", "siswa")
+  localStorage.setItem("EDUCARE_USER", JSON.stringify(user))
+
+  // ✅ COOKIE UNTUK MIDDLEWARE
+  document.cookie = "EDUCARE_LOGIN=true; path=/"
+  document.cookie = "EDUCARE_ROLE=siswa; path=/"
+
+  router.push("/dashboard/siswa")
+}
+
 
   return (
     <>

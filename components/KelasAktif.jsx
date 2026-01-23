@@ -7,6 +7,7 @@ import styles from "./kelasAktif.module.css"
 export default function KelasAktif() {
   const [classes, setClasses] = useState([])
   const [openId, setOpenId] = useState(null)
+  const [keyword, setKeyword] = useState("")
 
   useEffect(() => {
     setClasses(getClasses())
@@ -16,32 +17,60 @@ export default function KelasAktif() {
     setOpenId(openId === id ? null : id)
   }
 
+  const filteredClasses = classes.filter(cls =>
+    cls.title.toLowerCase().includes(keyword.toLowerCase())
+  )
+
   return (
     <section className={styles.section}>
       <div className={styles.wrapper}>
-        <h1 className={styles.title}>Kelas Aktif</h1>
 
-        {/* EMPTY STATE */}
-        {classes.length === 0 && (
+        {/* ===== HEADER ===== */}
+        <div className={styles.headerTop}>
+          <h1 className={styles.title}>Kelas Aktif</h1>
+
+          {/* SEARCH */}
+          <div className={styles.searchBox}>
+            <input
+              type="text"
+              placeholder="Cari kelas..."
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+              className={styles.search}
+            />
+
+            <span className={styles.searchIcon}>
+              <i className="bi bi-search"></i>
+            </span>
+          </div>
+        </div>
+
+        {/* EMPTY */}
+        {filteredClasses.length === 0 && (
           <div className={styles.emptyState}>
             Belum ada kelas tersedia
           </div>
         )}
 
-        {/* DATA KELAS */}
-        {classes.map(cls => {
+        {/* LIST */}
+        {filteredClasses.map(cls => {
           const open = openId === cls.id
 
           return (
             <div key={cls.id} className={styles.card}>
-              <div className={styles.header}>
+              <div className={styles.cardHeader}>
                 <div>
-                  <strong>
-                    {cls.title} ({cls.time})
+                  <strong className={styles.cardTitle}>
+                    {cls.title}
                   </strong>
+                  <span className={styles.time}>
+                    <i className="bi bi-clock me-1"></i>
+                    {cls.time}
+                  </span>
 
                   {open && (
                     <p className={styles.materi}>
+                      <i className="bi bi-book me-1"></i>
                       Materi: {cls.subject || "Statistika (Mean, Median, Range)"}
                     </p>
                   )}
@@ -56,7 +85,7 @@ export default function KelasAktif() {
                       window.location.href = `/live?class=${cls.id}&role=volunteer`
                     }}
                   >
-                    Mulai kelas
+                    Mulai Kelas
                   </button>
 
                   {open && (
@@ -75,7 +104,7 @@ export default function KelasAktif() {
                     className={`${styles.arrow} ${open ? styles.open : ""}`}
                     onClick={() => toggle(cls.id)}
                   >
-                    ▼
+                    <i className="bi bi-chevron-down"></i>
                   </span>
                 </div>
               </div>

@@ -27,7 +27,6 @@ export default function MissionSection() {
 
       <div className="mission-header">
         <h3>MISI</h3>
-        <p>Langkah nyata yang kami lakukan</p>
       </div>
 
       {/* 1 */}
@@ -35,7 +34,7 @@ export default function MissionSection() {
   <div className="mission-text">
     <h3>Belajar <span>Gratis</span> & Inklusif</h3>
     <p>
-      EduCare menyediakan ruang belajar gratis bagi siswa SD–SMA tanpa hambatan biaya dan lokasi.
+      RuangDiskusi menyediakan ruang belajar gratis bagi siswa SD–SMA tanpa hambatan biaya dan lokasi.
     </p>
   </div>
 
@@ -55,7 +54,7 @@ export default function MissionSection() {
       <div className="mission-card left gradient-blue">
   <div className="mission-text">
     <h3>Akses <span>Pengajar</span> Profesional</h3>
-    <p>Belajar dari mahasiswa, dosen, dan profesional industri.</p>
+    <p>Belajar dari mahasiswa, dosen, dan profesional industri yang berkompeten.</p>
   </div>
 
   <div className="mission-image">

@@ -12,20 +12,18 @@ export default function Student() {
   const [kelas, setKelas] = useState<any[]>([])
 
   useEffect(() => {
-    const u = JSON.parse(localStorage.getItem("EDUCARE_USER") || "null")
-    if (!u) {
-      router.push("/dashboard/siswa/login")
+    const role = localStorage.getItem("EDUCARE_ROLE")
+    const data = localStorage.getItem("EDUCARE_USER")
+
+    if (role !== "siswa" || !data) {
+      router.replace("/dashboard/siswa/login")
       return
     }
+
+    const u = JSON.parse(data)
     setUser(u)
     setKelas(getJoinedClasses(u))
   }, [])
-
-  const logout = () => {
-    localStorage.removeItem("EDUCARE_USER")
-    alert("Berhasil logout")
-    router.push("/dashboard/siswa/login")
-  }
 
   if (!user) return null
 

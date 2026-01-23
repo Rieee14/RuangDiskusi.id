@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 60px;
-  background: linear-gradient(180deg, #bfe3ff 0%, #79b9ff 100%);
+  background: #a2e0ec;
 }
 
 /* HEADER */

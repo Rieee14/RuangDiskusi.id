@@ -49,7 +49,7 @@ export default function Navbar() {
     <nav
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-[0_8px_20px_rgba(148,163,184,0.3)]"
+          ? "bg-white/50 backdrop-blur-md shadow-[0_8px_20px_rgba(148,163,184,0.3)]"
           : "bg-white shadow-[0_4px_12px_rgba(148,163,184,0.25)]"
       }`}
     >

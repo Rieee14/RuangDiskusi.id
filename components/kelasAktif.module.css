@@ -9,7 +9,7 @@
   margin-left: -50vw;
   margin-right: -50vw;
   min-height: 89vh;
-  background: linear-gradient(180deg, #d9fff3, #b8e0dc);
+  background: linear-gradient(135deg, #e9fff6, #d7f3ff);
   padding: 60px 0 80px;
 }
 
@@ -23,20 +23,71 @@
 }
 
 /* ===============================
+   HEADER TOP
+================================ */
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 20px;
+}
+
+/* ===============================
    TITLE
 ================================ */
 .title {
   font-size: 34px;
   font-weight: 800;
-  margin-bottom: 28px;
   color: #0b1c3d;
+}
+
+/* ===============================
+   SEARCH BOX
+================================ */
+.searchBox {
+  position: relative;
+  width: 260px;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 6px;
+  box-shadow: 0 10px 28px rgba(11, 28, 61, 0.15);
+}
+
+.search {
+  width: 100%;
+  height: 38px;
+  padding: 0 42px 0 16px;
+  border-radius: 999px;
+  border: 1.5px solid #9ca3af;
+  font-size: 14px;
+  outline: none;
+}
+
+.search:focus {
+  border-color: #4f5cff;
+  box-shadow: 0 0 0 3px rgba(79, 92, 255, 0.2);
+}
+
+.search::placeholder {
+  color: #9ca3af;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #64748b;
+  pointer-events: none;
 }
 
 /* ===============================
    EMPTY STATE
 ================================ */
 .emptyState {
-  background: white;
+  background: #ffffff;
   border: 2px dashed #9ca3af;
   border-radius: 22px;
   padding: 26px;
@@ -49,7 +100,7 @@
    CARD
 ================================ */
 .card {
-  background: white;
+  background: #ffffff;
   border-radius: 22px;
   padding: 18px 24px;
   margin-bottom: 18px;
@@ -57,7 +108,7 @@
 }
 
 /* ===============================
-   HEADER
+   CARD HEADER
 ================================ */
 .header {
   display: flex;
@@ -72,7 +123,7 @@
 .materi {
   margin-top: 6px;
   font-size: 14px;
-  color: #333;
+  color: #374151;
 }
 
 /* ===============================
@@ -91,20 +142,30 @@
   background: #4f5cff;
   color: white;
   border: none;
-  padding: 8px 18px;
+  padding: 6px 14px;
+  font-size: 13px;
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.start:hover {
+  background: #3f49d9;
 }
 
 .cancel {
   background: #ff3b3b;
   color: white;
   border: none;
-  padding: 8px 18px;
+  padding: 6px 14px;
+  font-size: 13px;
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.cancel:hover {
+  background: #e22f2f;
 }
 
 /* ===============================
@@ -115,6 +176,7 @@
   font-size: 18px;
   transition: transform 0.2s ease;
   user-select: none;
+  color: #374151;
 }
 
 .open {
@@ -129,9 +191,18 @@
     padding: 40px 0 60px;
   }
 
+  .headerTop {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .title {
     font-size: 26px;
     text-align: center;
+  }
+
+  .searchBox {
+    width: 100%;
   }
 
   .card {
